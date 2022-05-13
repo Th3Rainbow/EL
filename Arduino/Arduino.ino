@@ -218,7 +218,7 @@ void loop() {
   checkIfDead();
   if (!dead) {
     for (int i = 0; i < 14; i++) {
-      laser(i);
+      updateLaser(i);
     }
   }
   for (int collum = 0; collum < 16; collum++) {

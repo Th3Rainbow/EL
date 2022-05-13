@@ -1,4 +1,4 @@
-void laser(int i) {
+void updateLaser(int i) {
   if (shoot[i] == false) {
     rando[i] = int(random(0, chance));
     startTime[i] = millis();
@@ -13,15 +13,15 @@ void laserShoot(int i) {
   currentTime[i] = millis() - startTime[i];
   int percentage = (currentTime[i] * 100) / chargeTime;
   if (currentTime[i] >= 0 && currentTime[i] < chargeTime / 2) {
-    Stage1(i);
+    laserStage1(i);
     note = 1;
   }
   if (currentTime[i] >= chargeTime / 2 && currentTime[i] < chargeTime) {
-    Stage2(i);
+    laserStage2(i);
     note = 2;
   }
   if (currentTime[i] >= chargeTime) {
-    Stage3(i);
+    laserStage3(i);
     note = 5;
   }
   if (currentTime[i] >= chargeTime + (chargeTime / 2)) {
@@ -31,7 +31,7 @@ void laserShoot(int i) {
   }
 }
 
-void Stage1(int i) {
+void laserStage1(int i) {
   if (i < 7) {
     Blue[i * 2] = 0B1011111111111111;
     Blue[i * 2 + 1] = 0B1011111111111111;
@@ -47,7 +47,7 @@ void Stage1(int i) {
 
 }
 
-void Stage2(int i) {
+void laserStage2(int i) {
   if (i < 7) {
     Blue[i * 2] = 0B1111111111111111;
     Blue[i * 2 + 1] = 0B1111111111111111;
@@ -63,7 +63,7 @@ void Stage2(int i) {
 
 }
 
-void Stage3(int i) {
+void laserStage3(int i) {
   if (i < 7) {
     Red[i * 2] = 0B0000000000000000;
     Red[i * 2 + 1] = 0B0000000000000000;
