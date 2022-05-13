@@ -11,7 +11,6 @@ void updateLaser(int i) {
 
 void laserShoot(int i) {
   currentTime[i] = millis() - startTime[i];
-  int percentage = (currentTime[i] * 100) / chargeTime;
   if (currentTime[i] >= 0 && currentTime[i] < chargeTime / 2) {
     laserStage1(i);
     note = 1;

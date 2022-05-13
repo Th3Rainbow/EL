@@ -221,17 +221,16 @@ void loop() {
       updateLaser(i);
     }
   }
-  for (int collum = 0; collum < 16; collum++) {
+  for (int columm = 0; columm < 16; columm++) {
     if (dead) {
-      deadSound();
-      displayX(collum);
+      displayDead(columm);
     } else {
-      displayLaser(collum);
+      displayBoard(columm);
       delay(0.0001);
     }
   }
 }
-void displayLaser(int c) {
+void displayBoard(int c) {
   digitalWrite(latchPin, LOW);
 
   shiftOut(dataPin, clockPin, LSBFIRST, Sound[note]); //Lyd
@@ -248,7 +247,7 @@ void displayLaser(int c) {
   digitalWrite(latchPin, HIGH);
 }
 
-void displayX(int c) {
+void displayDead(int c) {
   digitalWrite(latchPin, LOW);
 
   shiftOut(dataPin, clockPin, LSBFIRST, Sound[note]); //Lyd
@@ -264,10 +263,6 @@ void displayX(int c) {
 
   digitalWrite(latchPin, HIGH);
 
-}
-
-void deadSound() {
- note = 0;
 }
 
 boolean wait(int waitTime) {
