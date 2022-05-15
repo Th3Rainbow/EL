@@ -262,19 +262,4 @@ void displayDead(int c) {
   shiftOut(dataPin, clockPin, LSBFIRST, Rows[c] >> 8); //Række vælger Højre plade
 
   digitalWrite(latchPin, HIGH);
-
-}
-
-boolean wait(int waitTime) {
-  if (Wait == false) {
-    startTimer = millis();
-  }
-  unsigned long currentTime = millis() - startTimer;
-  if (currentTime >= waitTime) {
-    Wait = false;
-    return true;
-  } else {
-    Wait = true;
-    return false;
-  }
 }

@@ -99,7 +99,7 @@ void turnOff(int i) {
   }
 }
 
-boolean checkIfDead() {
+void checkIfDead() {
   if (activeY[playerY] || activeX[playerX]) {
     dead = true;
   }
